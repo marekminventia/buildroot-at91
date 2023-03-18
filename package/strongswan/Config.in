@@ -29,7 +29,7 @@ if BR2_PACKAGE_STRONGSWAN
 
 choice
 	prompt "Cryptographic backend"
-	default BR2_PACKAGE_STRONGSWAN_GMP
+	default BR2_PACKAGE_STRONGSWAN_OPENSSL
 
 config BR2_PACKAGE_STRONGSWAN_OPENSSL
 	bool "OpenSSL"
@@ -48,11 +48,13 @@ endchoice
 
 config BR2_PACKAGE_STRONGSWAN_AF_ALG
 	bool "Enable AF_ALG crypto interface to Linux Crypto API"
+	
 
 config BR2_PACKAGE_STRONGSWAN_CURL
 	bool "Enable CURL fetcher plugin to fetch files via libcurl"
 	select BR2_PACKAGE_LIBCURL
-
+	default y
+	
 config BR2_PACKAGE_STRONGSWAN_CHARON
 	bool "Enable the IKEv1/IKEv2 keying daemon charon"
 	default y
